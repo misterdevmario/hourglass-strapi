@@ -7,7 +7,7 @@ import Modal from "../modal/Modal";
 import ActivitiesGallery from "../activitiesGallery/ActivitiesGallery";
 import { useModal } from "../modal/useModal";
 import { useEffect, useState } from "react";
-import addImage from "../../public/add-image.svg"
+import { RiImageAddLine } from "react-icons/ri";
 
 const validation = Yup.object().shape({
   activitieEn: Yup.string()
@@ -29,13 +29,9 @@ const validation = Yup.object().shape({
 });
 
 const Carousel = ({ activities }) => {
-  const { updateActivity, image, postActivity } = useInfo();
+  const { updateActivity, image, setImage, postActivity } = useInfo();
   const [id, setId] = useState("");
   const [isOpenGallery, openGallery, closeGallery] = useModal(true);
-  const [postImg, setPostImg] = useState("");
-  useEffect(() => {
-    !image ? setPostImg(addImage) : setPostImg(image);
-  }, [image]);
 
   return (
     <div className={styles.container}>
@@ -114,14 +110,18 @@ const Carousel = ({ activities }) => {
         initialValues={{
           activitieEn: "",
           activitieEs: "",
-          activitieImage:image,
+          activitieImage: "",
           hours: "",
           spotEn: "",
           spotEs: "",
         }}
         validationSchema={validation}
-        onSubmit={async (data, actions) => {
+        onSubmit={async (data, { resetForm }) => {
+          data.activitieImage = image
           await postActivity(data);
+          console.log(data)
+          setImage()
+          resetForm({ values: "" });
         }}
       >
         {({ handleSubmit }) => (
@@ -158,21 +158,33 @@ const Carousel = ({ activities }) => {
                   className={styles.error}
                   name="spotEs"
                 />
-                <button disabled={postImg.src} type="submit">
+                <button disabled={!image} type="submit">
                   Guardar
                 </button>
               </div>
-              <Image
-                className={styles.post_form_image}
-                src={postImg}
-                alt="activity"
-                width={200}
-                height={250}
-                priority
-                onClick={() => {
-                  openGallery();
-                }}
-              />
+              {!image ? (
+                <div className="flex items-center justify-center w-1/2 h-12">
+                  <RiImageAddLine
+                    size={80}
+                    onClick={() => {
+                      openGallery();
+                    }}
+                  />
+                </div>
+              ) : (
+                <Image
+                  className={styles.post_form_image}
+                  src={image}
+                  alt="activity"
+                  width={200}
+                  height={250}
+                  priority
+                  onClick={() => {
+                    openGallery();
+                  }}
+                />
+              )}
+
               <Modal isOpen={isOpenGallery} closeModal={closeGallery}>
                 <ActivitiesGallery id={id} closeModal={closeGallery} />
               </Modal>

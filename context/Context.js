@@ -96,7 +96,7 @@ export const Provider = ({ children }) => {
     setActivityGallery(res.data);
   };
   const postActivity = async (data) => {
-    const res = await putActivities({ data });
+    const res = await postActivities({ data });
     setActivityGallery(res.data);
   };
 
