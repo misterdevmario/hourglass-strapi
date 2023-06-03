@@ -1,0 +1,29 @@
+.container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container h1{
+    width: 100%;
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    margin-right: 5%;
+}
+.image_container{
+    width: 55vw;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vh;
+}
+
+.image_container img{
+    width: 8vw;
+    height: auto;
+    border-radius: 5px;
+}
