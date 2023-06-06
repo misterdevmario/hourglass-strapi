@@ -13,6 +13,7 @@ import {
   getFlyersGallery,
   putActivities,
   postActivities,
+  deleteActivities
 } from "@/lib/api";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -98,7 +99,13 @@ export const Provider = ({ children }) => {
   const postActivity = async (data) => {
     const res = await postActivities({ data });
     setActivityGallery(res.data);
+    setImage(null)
   };
+  const deleteActivity = async(id)=>{
+    const res = deleteActivities(id)
+    setActivityGallery(res);
+
+  }
 
   return (
     <infoContext.Provider
@@ -109,6 +116,7 @@ export const Provider = ({ children }) => {
         handleImage,
         image,
         postActivity,
+        deleteActivity
       }}
     >
       {children}

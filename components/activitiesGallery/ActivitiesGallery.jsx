@@ -20,7 +20,7 @@ const ActivitiesGallery = ({id, closeModal}) => {
             width={100}
             height={200}
             priority
-            onClick={() => {{id?updateActivity({activitieImage: item}, id): handleImage(item);}; closeModal()}}
+            onClick={() => {{id !== null ? updateActivity({activitieImage: item}, id): handleImage(item);}; closeModal(); }}
           />
         ))}
       </div>

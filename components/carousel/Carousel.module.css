@@ -1,7 +1,6 @@
 .container{
     margin-top: 11vh;
     width: 100%;
-    min-height: 120vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -54,10 +53,11 @@
     border:none;
     border-radius: var(--border-radius);
     font-weight: 700;
+    text-transform: uppercase;
 
 }
 
-.inputs button {
+.save  {
     width: 50%;
     height:10%;
     text-align: center;
@@ -71,7 +71,20 @@
     text-align: center;
 }
 
-.inputs button:hover{
+.save:hover{
 background-color: #9f9b9b;
 }
 
+.delete {
+    background-color: red;
+    width: 50%;
+    height:10%;
+    text-align: center;
+    margin: 1vh;
+    font-size: var(--font-m);
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    color:#fff;
+    text-align: center;
+}

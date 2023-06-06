@@ -6,7 +6,7 @@ import { useInfo } from "@/context/Context";
 import Modal from "../modal/Modal";
 import ActivitiesGallery from "../activitiesGallery/ActivitiesGallery";
 import { useModal } from "../modal/useModal";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RiImageAddLine } from "react-icons/ri";
 
 const validation = Yup.object().shape({
@@ -29,13 +29,15 @@ const validation = Yup.object().shape({
 });
 
 const Carousel = ({ activities }) => {
-  const { updateActivity, image, setImage, postActivity } = useInfo();
+  const { updateActivity, image, postActivity, deleteActivity } = useInfo();
   const [id, setId] = useState("");
+  console.log(id)
   const [isOpenGallery, openGallery, closeGallery] = useModal(true);
 
   return (
     <div className={styles.container}>
-      {activities.map((item) => (
+      {activities.map((item, i) => (
+       
         <Formik
           key={item.id}
           initialValues={{
@@ -54,7 +56,7 @@ const Carousel = ({ activities }) => {
             <div key={item.id}>
               <Form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.inputs}>
-                  <Field name="hours" placeholder="Horario" />
+                  <Field name="hours" placeholder={`"Horario" ${item.id}`} />
                   <ErrorMessage
                     component="p"
                     className={styles.error}
@@ -84,7 +86,8 @@ const Carousel = ({ activities }) => {
                     className={styles.error}
                     name="spotEs"
                   />
-                  <button type="submit">Guardar</button>
+                  <button className={styles.save} type="submit">Guardar</button>
+                  {i == activities.length -1 && activities.length > 14 ?  <button disabled={activities.length <= 14} className={styles.delete} onClick={()=>deleteActivity(item.id)}>Eliminar</button> : null}
                 </div>
                 <Image
                   className={styles.form_image}
@@ -105,6 +108,7 @@ const Carousel = ({ activities }) => {
             </div>
           )}
         </Formik>
+       
       ))}
       <Formik
         initialValues={{
@@ -119,8 +123,6 @@ const Carousel = ({ activities }) => {
         onSubmit={async (data, { resetForm }) => {
           data.activitieImage = image
           await postActivity(data);
-          console.log(data)
-          setImage()
           resetForm({ values: "" });
         }}
       >
@@ -158,7 +160,7 @@ const Carousel = ({ activities }) => {
                   className={styles.error}
                   name="spotEs"
                 />
-                <button disabled={!image} type="submit">
+                <button className={styles.save} disabled={!image} type="submit">
                   Guardar
                 </button>
               </div>
@@ -168,6 +170,8 @@ const Carousel = ({ activities }) => {
                     size={80}
                     onClick={() => {
                       openGallery();
+                      setId(null)
+
                     }}
                   />
                 </div>
@@ -181,6 +185,8 @@ const Carousel = ({ activities }) => {
                   priority
                   onClick={() => {
                     openGallery();
+                    setId(null)
+
                   }}
                 />
               )}
