@@ -8,13 +8,23 @@ import {
   getDinning,
   getBreakfast,
   getBars,
-  getBarsRestaurantsGallery,
   getFlyers,
   getFlyersGallery,
+  getBarsRestaurantsGallery,
+  putBars,
+  putDinning,
+  putBreakfast,
   putActivities,
+  putStaff,
+  putFlyers,
   postActivities,
-  deleteActivities
+  postStaffs,
+  postFlyers,
+  deleteActivities,
+  deleteStaffs,
+  deleteFlyers,
 } from "@/lib/api";
+import { getTokenRequest } from "@/lib/auth";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const infoContext = createContext();
@@ -26,8 +36,11 @@ export const useInfo = () => {
 };
 
 export const Provider = ({ children }) => {
+  const [token, setToken] = useState(null);
   const [activityGallery, setActivityGallery] = useState();
   const [image, setImage] = useState();
+  const [flyerImage, setFlyerImage] = useState();
+  const [staffImage, setStaffImage] = useState();
   const [info, setInfo] = useState({
     activities: [],
     activitiesGallery: [],
@@ -86,10 +99,22 @@ export const Provider = ({ children }) => {
         flyersGallery: flyerImage.toString().split(","),
       });
     })();
-  }, [activityGallery, image]);
+  }, [activityGallery, image, staffImage, flyerImage]);
 
   const handleImage = (item) => {
     setImage(item);
+  };
+  const handleStaffImage = (item) => {
+    setStaffImage(item);
+  };
+  const handleFlyerImage = (item) => {
+    setFlyerImage(item);
+  };
+
+  const getToken = async (data) => {
+    const res = await getTokenRequest(data);
+    setToken(res);
+
   };
 
   const updateActivity = async (data, id) => {
@@ -99,13 +124,54 @@ export const Provider = ({ children }) => {
   const postActivity = async (data) => {
     const res = await postActivities({ data });
     setActivityGallery(res.data);
-    setImage(null)
+    setImage(null);
   };
-  const deleteActivity = async(id)=>{
-    const res = deleteActivities(id)
+  const deleteActivity = async (id) => {
+    const res = deleteActivities(id);
     setActivityGallery(res);
+  };
 
-  }
+  const updateBar = async (data, id) => {
+    const res = await putBars({ data }, id);
+    setActivityGallery(res.data);
+  };
+  const updateDinning = async (data, id) => {
+    const res = await putDinning({ data }, id);
+    setActivityGallery(res.data);
+  };
+  const updateBrakfast = async (data, id) => {
+    const res = await putBreakfast({ data }, id);
+    setActivityGallery(res.data);
+  };
+  const updateStaff = async (data, id) => {
+    const res = await putStaff({ data }, id);
+    setActivityGallery(res.data);
+  };
+
+  const postStaff = async (data) => {
+    const res = await postStaffs({ data });
+    setActivityGallery(res.data);
+    setStaffImage(null);
+  };
+  const deleteStaff = async (id) => {
+    const res = deleteStaffs(id);
+    setActivityGallery(res);
+  };
+
+  const updateFlyer = async (data, id) => {
+    const res = await putFlyers({ data }, id);
+    setActivityGallery(res.data);
+  };
+
+  const postFlyer = async (data) => {
+    const res = await postFlyers({ data });
+    setActivityGallery(res.data);
+    setFlyerImage(null);
+  };
+  const deleteFlyer = async (id) => {
+    const res = deleteFlyers(id);
+    setActivityGallery(res);
+  };
 
   return (
     <infoContext.Provider
@@ -115,8 +181,23 @@ export const Provider = ({ children }) => {
         activityGallery,
         handleImage,
         image,
+        handleStaffImage,
+        staffImage,
         postActivity,
-        deleteActivity
+        deleteActivity,
+        updateBar,
+        updateDinning,
+        updateBrakfast,
+        updateStaff,
+        postStaff,
+        deleteStaff,
+        handleFlyerImage,
+        flyerImage,
+        updateFlyer,
+        postFlyer,
+        deleteFlyer,
+        token,
+        getToken,
       }}
     >
       {children}
