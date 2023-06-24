@@ -72,13 +72,13 @@ const Flyers = () => {
                     component="p"
                     className={styles.error}
                   />
-                  <Field name="spotEn" placeholder="nombre español" />
+                  <Field name="spotEn" placeholder="locacion ingles" />
                   <ErrorMessage
                     name="spotEn"
                     component="p"
                     className={styles.error}
                   />
-                  <Field name="spotEs" placeholder="nombre español" />
+                  <Field name="spotEs" placeholder="locacion español" />
                   <ErrorMessage
                     name="spotEs"
                     component="p"

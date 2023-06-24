@@ -1,3 +1,4 @@
+'use client'
 import Flyers from '@/components/flyers/Flyers'
 import React from 'react'
 
