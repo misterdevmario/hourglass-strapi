@@ -8,6 +8,7 @@ import { useModal } from "../modal/useModal";
 import { useState } from "react";
 import { RiImageAddLine } from "react-icons/ri";
 import ActivitiesGallery from "./gallery/ActivitiesGallery";
+import { time } from "@/lib/hours";
 
 const validation = Yup.object().shape({
   activitieEn: Yup.string()
@@ -32,10 +33,20 @@ const Carousel = ({ activities }) => {
   const { updateActivity, image, postActivity, deleteActivity } = useInfo();
   const [id, setId] = useState("");
   const [isOpenGallery, openGallery, closeGallery] = useModal(true);
+  const hoursUppercase = [];
+  for (let i = 0; i < time.length; i++) {
+    for (let j = 0; j < activities.length; j++) {
+      if (
+        time[i] ==
+        activities[j].attributes.hours.toLocaleLowerCase().replace(" ", "")
+      )
+        hoursUppercase.push(activities[j]);
+    }
+  }
 
   return (
     <div className={styles.container}>
-      {activities.map((item, i) => (
+      {hoursUppercase.map((item, i) => (
         <Formik
           key={item.id}
           initialValues={{
@@ -51,15 +62,19 @@ const Carousel = ({ activities }) => {
           }}
         >
           {({ handleSubmit }) => (
-            <div key={item.id}>
+            <div>
               <Form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.inputs}>
-                  <Field name="hours" placeholder={`"Horario" ${item.id}`} />
-                  <ErrorMessage
-                    component="p"
-                    className={styles.error}
-                    name="hours"
-                  />
+                  <Field as="select" name="hours" placeholder={"Horario"}>
+                    <option value="defaultValue">
+                      {item.attributes.hours}
+                    </option>
+                    {time.map((item, i) => (
+                      <option key={i} value={item} selected>
+                        {item}
+                      </option>
+                    ))}
+                  </Field>
                   <Field name="activitieEn" placeholder="Actividad Ingles" />
                   <ErrorMessage
                     component="p"
@@ -87,7 +102,7 @@ const Carousel = ({ activities }) => {
                   <button className={styles.save} type="submit">
                     Guardar
                   </button>
-                  {i == activities.length - 1 && activities.length > 14 ? (
+                  {activities.length > 14 ? (
                     <button
                       disabled={activities.length <= 14}
                       className={styles.delete}
@@ -114,7 +129,7 @@ const Carousel = ({ activities }) => {
           )}
         </Formik>
       ))}
-     
+
       <Formik
         initialValues={{
           activitieEn: "",
@@ -135,12 +150,15 @@ const Carousel = ({ activities }) => {
           <div>
             <Form onSubmit={handleSubmit} className={styles.form}>
               <div className={styles.inputs}>
-                <Field name="hours" placeholder="Horario" />
-                <ErrorMessage
-                  component="p"
-                  className={styles.error}
-                  name="hours"
-                />
+                <Field as ="select" name="hours" placeholder="Horario">
+                  <option value="defaultValue">horario</option>
+                  {time.map((item, i) => (
+                    <option key={i} value={item} selected>
+                      {item}
+                    </option>
+                  ))}
+                </Field>
+
                 <Field name="activitieEn" placeholder="Actividad Ingles" />
                 <ErrorMessage
                   component="p"
@@ -206,19 +224,3 @@ const Carousel = ({ activities }) => {
 };
 
 export default Carousel;
-
-// {activities.map((item) => (
-//   <div key={item.id} className="card_container">
-//     <Image
-//       src={item.attributes.activitieImage}
-//       width={200}
-//       height={250}
-//       alt=""
-//     />
-//     <div className="hours">{item.attributes.hours}</div>
-//     <div className="activity">{item.attributes.activitieEn}</div>
-//     <div className="activity">{item.attributes.activitieEs}</div>
-//     <div className="location">{item.attributes.spotEn}</div>
-//     <div className="location">{item.attributes.spotEs}</div>
-//   </div>
-// ))}

@@ -32,9 +32,12 @@ navigate.push('/login')
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
-        <Image src="/logo.png" alt="logo" width={70} height={70} priority />
+        <Image src="/logo.svg" alt="logo" width={120} height={120} priority />
       </div>
       <div className={styles.toogle_navbar_container}>
+      <div className={styles.logo_toggle}>
+        <Image src="/logo.svg" alt="logo" width={50} height={50} priority />
+      </div>
         <div className={styles.toggle_tittle}>{router.replace("/editar/", "")}</div>
         {!toggle ? (
           <BsMenuUp onClick={() => setToggle(true)} size={30} />
@@ -47,7 +50,7 @@ navigate.push('/login')
           <Link
             key={i}
             className={
-              router.replace("/", "") == item.toLowerCase()
+              router.replace("/editar/", "") == item.toLowerCase()
                 ? `${styles.active}`
                 : `${null}`
             }
@@ -74,7 +77,7 @@ navigate.push('/login')
             <Link
               key={i}
               className={
-                router.replace("/", "") == item.toLowerCase()
+                router.replace("/editar/", "") == item.toLowerCase()
                   ? `${styles.active}`
                   : `${null}`
               }

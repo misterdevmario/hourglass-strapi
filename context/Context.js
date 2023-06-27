@@ -24,7 +24,8 @@ import {
   deleteStaffs,
   deleteFlyers,
 } from "@/lib/api";
-import { getTokenRequest } from "@/lib/auth";
+import { clock } from "@/lib/clock";
+import { daysEn, daysEs, monthsEn, monthsEs } from "@/lib/hours";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const infoContext = createContext();
@@ -36,7 +37,20 @@ export const useInfo = () => {
 };
 
 export const Provider = ({ children }) => {
-  const [token, setToken] = useState(null);
+  const dataInfo = new Date();
+  let ampm = "";
+  let ampmHours = dataInfo.getHours();
+
+  if (ampmHours >= 12) {
+    ampm = "PM";
+    ampmHours = ampmHours - 12;
+  } else {
+    ampm = "AM";
+  }
+
+  if (ampmHours == 0) ampmHours = 12;
+
+  const [timeDate, setTimeDate] = useState(clock);
   const [activityGallery, setActivityGallery] = useState();
   const [image, setImage] = useState();
   const [flyerImage, setFlyerImage] = useState();
@@ -52,6 +66,23 @@ export const Provider = ({ children }) => {
     barsrestaurantsGallery: [],
     flyers: [],
     flyersGallery: [],
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeDate({
+        dayNumber: dataInfo.getDate(),
+        dayEs: daysEs[dataInfo.getDay()],
+        dayEn: daysEn[dataInfo.getDay()],
+        monthEn: monthsEn[dataInfo.getMonth()],
+        monthEs: monthsEs[dataInfo.getMonth()],
+        year: dataInfo.getFullYear(),
+        hour: ampmHours,
+        ampm,
+        minutes: dataInfo.getMinutes(),
+      });
+    }, 1000);
+    return () => clearInterval(timer);
   });
 
   useEffect(() => {
@@ -109,12 +140,6 @@ export const Provider = ({ children }) => {
   };
   const handleFlyerImage = (item) => {
     setFlyerImage(item);
-  };
-
-  const getToken = async (data) => {
-    const res = await getTokenRequest(data);
-    setToken(res);
-
   };
 
   const updateActivity = async (data, id) => {
@@ -196,8 +221,7 @@ export const Provider = ({ children }) => {
         updateFlyer,
         postFlyer,
         deleteFlyer,
-        token,
-        getToken,
+        timeDate,
       }}
     >
       {children}

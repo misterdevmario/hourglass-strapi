@@ -21,6 +21,7 @@
   --linear-gradient: rgba(28, 27, 29, 0.9);
   --main-color:#5C1E3F;
   --secondary-color:#585858;
+  --home-linear: linear-gradient(rgb(160, 40, 204), rgb(54, 22, 160));
 }
 
 body{

@@ -48,26 +48,26 @@ const Staff = () => {
                     component="p"
                     className={styles.error}
                   />
-                  <Field name="position" placeholder="nombre" />
+                  <Field name="position" placeholder="posición" />
                   <ErrorMessage
                     name="position"
                     component="p"
                     className={styles.error}
                   />
 
-                    <button className={styles.save} type="submit">
-                      Guardar
+                  <button className={styles.save} type="submit">
+                    Guardar
+                  </button>
+                  {info.staff.length > 1 ? (
+                    <button
+                      type="button"
+                      className={styles.delete}
+                      onClick={() => deleteStaff(item.id)}
+                    >
+                      Eliminar
                     </button>
-                    {info.staff.length > 1 ? (
-                      <button
-                        type="button"
-                        className={styles.delete}
-                        onClick={() => deleteStaff(item.id)}
-                      >
-                        Eliminar
-                      </button>
-                    ) : null}
-                  </div>
+                  ) : null}
+                </div>
                 <Image
                   className={styles.form_image}
                   src={item.attributes.staffImg}
@@ -107,6 +107,12 @@ const Staff = () => {
                   component="p"
                   className={styles.error}
                   name="name"
+                />
+                <Field name="position" placeholder="posición" />
+                <ErrorMessage
+                  name="position"
+                  component="p"
+                  className={styles.error}
                 />
                 <button
                   className={styles.save}

@@ -1,183 +1,206 @@
-.container{
-    margin-top: 9vh;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2vh;
-    padding: 2vh;
+.container {
+  margin-top: 9vh;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2vh;
+  padding: 2vh;
 }
 
-.error{
-    font-size: 9px;
-    color: red;
-    margin: 0;
-    padding: 0;
+.error {
+  font-size: 9px;
+  color: red;
+  margin: 0;
+  padding: 0;
 }
 
-.form_image, .post_form_image{
-    height: 100%;
-    width: auto;
-    border-radius: var(--border-radius);
-
+.form_image,
+.post_form_image {
+  height: 100%;
+  width: auto;
+  border-radius: var(--border-radius);
 }
 
-.form{
-    width: 400px;
-    height: 260px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: var(--font-sm);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    background-color: #fff;
+.form {
+  width: 400px;
+  height: 260px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-sm);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  background-color: #fff;
 }
 
-.inputs{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-transform: uppercase;
-
+.inputs {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-transform: uppercase;
 }
 
-.inputs input{
-    width: 100%;
-    height:10%;
-    text-align: center;
-    margin: 1vh;
-    font-size: var(--font-m);
-    border:none;
-    border-radius: var(--border-radius);
-    font-weight: 700;
-    text-transform: uppercase;
-
+.inputs input {
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  margin: 1vh;
+  font-size: var(--font-m);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-
-.save  {
-    width: 50%;
-    height:10%;
-    text-align: center;
-    margin: 1vh;
-    font-size: var(--font-m);
-    border: none;
-    border-radius: var(--border-radius);
-    font-weight: 700;
-    background-color: var(--secondary-color);
-    color:#fff;
-    text-align: center;
+.inputs select {
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  margin: 1vh;
+  font-size: var(--font-m);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.save:hover{
-background-color: #9f9b9b;
+.inputs option{
+   width: 100%;
+  height: 10%;
+  text-align: center;
+  margin: 1vh;
+  font-size: var(--font-m);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.save {
+  width: 50%;
+  height: 10%;
+  text-align: center;
+  margin: 1vh;
+  font-size: var(--font-m);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  background-color: var(--secondary-color);
+  color: #fff;
+  text-align: center;
+}
+
+.save:hover {
+  background-color: #9f9b9b;
 }
 
 .delete {
-    background-color: red;
-    width: 50%;
-    height:10%;
-    text-align: center;
-    margin: 1vh;
-    font-size: var(--font-m);
-    border: none;
-    border-radius: var(--border-radius);
-    font-weight: 700;
-    color:#fff;
-    text-align: center;
+  background-color: red;
+  width: 50%;
+  height: 10%;
+  text-align: center;
+  margin: 1vh;
+  font-size: var(--font-m);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
 }
 
 .toast-container {
-    width: 18rem;
-    height: 7rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  
-    font-size: 0.5rem;
-    background-color: var(--bg-main);
+  width: 18rem;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  font-size: 0.5rem;
+  background-color: var(--bg-main);
+}
+
+.toast_container-text {
+  width: 18rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.toast_container-text-name {
+  text-align: center;
+}
+.toast_container-btn {
+  width: 18rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toast_container-btn-delete {
+  background-color: rgb(247, 70, 70);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  border: none;
+  color: #fff;
+  height: 2rem;
+  width: 5rem;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+.toast_container-btn-cancel {
+  background-color: green;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  border: none;
+  color: #fff;
+  height: 2rem;
+  width: 5rem;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.toast_container-btn-delete:hover {
+  transform: scale(1.1);
+}
+.toast_container-btn-cancel:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 1400px) {
+  .form {
+    width: 300px;
+    height: 200px;
+    font-size: var(--font-sm);
   }
-  
-  .toast_container-text {
-    width: 18rem;
-    height: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .inputs input {
+    font-size: var(--font-sm);
   }
-  .toast_container-text-name {
-    text-align: center;
+  .save {
+    font-size: var(--font-sm);
   }
-  .toast_container-btn {
-    width: 18rem;
-    height: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .delete {
+    height: 8%;
+    font-size: var(--font-sm);
   }
-  
-  .toast_container-btn-delete {
-    background-color: rgb(247, 70, 70);
-    text-decoration: none;
-    border-radius: var(--border-radius);
-    border: none;
-    color: #fff;
-    height: 2rem;
-    width: 5rem;
-    margin: 0.5rem;
-    cursor: pointer;
+}
+
+@media screen and (max-width: 425px) {
+  .form {
+    width: 370px;
+    height: 250px;
+    font-size: var(--font-sm);
+    
   }
-  .toast_container-btn-cancel {
-    background-color: green;
-    text-decoration: none;
-    border-radius: var(--border-radius);
-    border: none;
-    color: #fff;
-    height: 2rem;
-    width: 5rem;
-    margin: 0.5rem;
-    cursor: pointer;
-  }
-  
-  .toast_container-btn-delete:hover {
-    transform: scale(1.1);
-  }
-  .toast_container-btn-cancel:hover {
-    transform: scale(1.1);
+  .save {
+    height: 3vh;
+    font-size: var(--font-sm);
   }
 
-  @media screen and (max-width:1400px) {
-    .form{
-      width: 300px;
-      height: 200px;
-      font-size: var(--font-sm);
-    }
-    .inputs input{
-      font-size: var(--font-sm);
-    }
-    .save {
-      font-size: var(--font-sm);
-    }
-    .delete{
-      height: 8%;
-      font-size: var(--font-sm);
-    }
-  }
-
-  @media screen and (max-width:425px) {
-    .form{
-      width: 370px;
-      height: 250px;
-      font-size: var(--font-sm);
-    }
-    .save{
-      height: 3vh;
-      font-size: var(--font-sm);
-     }
-  }
+}
