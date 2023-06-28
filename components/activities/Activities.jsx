@@ -8,7 +8,7 @@ import { useModal } from "../modal/useModal";
 import { useState } from "react";
 import { RiImageAddLine } from "react-icons/ri";
 import ActivitiesGallery from "./gallery/ActivitiesGallery";
-import { time } from "@/lib/hours";
+import { time } from "@/lib/language";
 
 const validation = Yup.object().shape({
   activitieEn: Yup.string()
@@ -30,6 +30,7 @@ const validation = Yup.object().shape({
 });
 
 const Carousel = ({ activities }) => {
+  console.log(activities)
   const { updateActivity, image, postActivity, deleteActivity } = useInfo();
   const [id, setId] = useState("");
   const [isOpenGallery, openGallery, closeGallery] = useModal(true);
@@ -70,7 +71,7 @@ const Carousel = ({ activities }) => {
                       {item.attributes.hours}
                     </option>
                     {time.map((item, i) => (
-                      <option key={i} value={item} selected>
+                      <option key={i} value={item} >
                         {item}
                       </option>
                     ))}
@@ -153,7 +154,7 @@ const Carousel = ({ activities }) => {
                 <Field as ="select" name="hours" placeholder="Horario">
                   <option value="defaultValue">horario</option>
                   {time.map((item, i) => (
-                    <option key={i} value={item} selected>
+                    <option key={i} value={item} >
                       {item}
                     </option>
                   ))}

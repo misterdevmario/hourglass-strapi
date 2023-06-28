@@ -62,7 +62,7 @@ navigate.push('/login')
       </div>
       <div className={styles.outlinks}>
         <div className={styles.home}>
-          <FaRegHourglass size={40} />
+          <FaRegHourglass size={40} onClick={()=>navigate.push('/')}/>
         </div>
         <div className={styles.logout}>
           <RiLogoutCircleRLine size={40} onClick={()=>logOut()} />
@@ -89,9 +89,9 @@ navigate.push('/login')
           ))}
           <div className={styles.toggle_outlinks}>
             <div className={styles.home}>
-              <FaRegHourglass size={40} />
+              <FaRegHourglass size={40} onClick={navigate.push('/')} />
             </div>
-            <div className={styles.logout}>
+            <div className={styles.logout} >
               <RiLogoutCircleRLine size={40} onClick={()=>logOut()} />
             </div>
           </div>

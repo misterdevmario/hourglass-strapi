@@ -8,7 +8,6 @@ import { useInfo } from "@/context/Context"
 const Header = () => {
 
 const {timeDate} = useInfo()
-console.log(timeDate)
 
   return (
     <div className={styles.container}>

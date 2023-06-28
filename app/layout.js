@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Provider>
-          {pathname.includes("/login") || pathname.includes("/") ? null : <Navbar />}
+          {pathname == "/login" || pathname == '/'? null : <Navbar />}
           {children}
         </Provider>
       </body>
