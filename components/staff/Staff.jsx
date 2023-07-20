@@ -89,7 +89,7 @@ const Staff = () => {
       <Formik
         initialValues={{
           name: "",
-          staffImg: "",
+          position: "",
         }}
         validationSchema={validation}
         onSubmit={async (data, { resetForm }) => {

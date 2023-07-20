@@ -23,7 +23,6 @@ const Login = () => {
         }}
         validationSchema={validation}
         onSubmit={async (data, actions) => {
-       console.log(data)
           
         }}
       >

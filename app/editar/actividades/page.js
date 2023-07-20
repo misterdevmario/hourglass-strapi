@@ -7,7 +7,7 @@ const Edit = () => {
 
   return (
     <div>
-      <Activities activities={info.activities} />
+        <Activities activities={info.activities} />
     </div>
   );
 };

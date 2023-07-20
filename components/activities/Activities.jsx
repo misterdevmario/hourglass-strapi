@@ -30,7 +30,6 @@ const validation = Yup.object().shape({
 });
 
 const Carousel = ({ activities }) => {
-  console.log(activities)
   const { updateActivity, image, postActivity, deleteActivity } = useInfo();
   const [id, setId] = useState("");
   const [isOpenGallery, openGallery, closeGallery] = useModal(true);
