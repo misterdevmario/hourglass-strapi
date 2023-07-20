@@ -17,7 +17,7 @@ const Login = () => {
   const router = useRouter()
   return (
     <div className={styles.container}>
-      <Image src="/logo.png" alt="logo" width={500} height={500} priority />
+      <Image src="/logo.svg" alt="logo" width={500} height={500} priority />
       <Formik
         initialValues={{
           identifier: "admin",

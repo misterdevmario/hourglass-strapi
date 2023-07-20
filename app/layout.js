@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
+
 export default function RootLayout({ children }) {
   const pathname = usePathname();
   const [navbar, setNavbar] = useState(false)
