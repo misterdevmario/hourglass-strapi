@@ -2,10 +2,6 @@
 import Activities from "@/components/activities/Activities";
 import { useInfo } from "@/context/Context";
 
-export const metadata = {
-  title: '...',
-  description: '...',
-}
 
 const Edit = () => {
   const { info } = useInfo();
