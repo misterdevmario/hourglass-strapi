@@ -1,0 +1,55 @@
+.weather_container {
+  width: 34vw;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: var(--font-weight);
+  font-size: 1.2rem;
+  background: var(--home-linear);
+  color: var(--font-color);
+}
+
+.temp {
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.temp img {
+  height: 8vh;
+  width: auto;
+}
+
+.tempinfo {
+  height: 8vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+}
+
+.tempmain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 11vw;
+  font-size: var(--font-xl);
+}
+
+.location{
+    font-size:1.2rem;
+}
+.desc {
+  font-size: 1.3rem;
+  font-weight: var(--font-weight);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 11vw;
+  height: 100%;
+  text-align: center;
+}

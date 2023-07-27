@@ -33,13 +33,11 @@ export const useInfo = () => {
   return context;
 };
 
-//CLOCK
 
-//WEATHER
 
 export const Provider = ({ children }) => {
-  const [language, setLanguage] = useState();
-
+  const [language, setLanguage] = useState("en");
+  const [languageMobile, setLanguageMobile] = useState("en");
   const [activityGallery, setActivityGallery] = useState();
   const [image, setImage] = useState();
   const [flyerImage, setFlyerImage] = useState();
@@ -92,12 +90,7 @@ export const Provider = ({ children }) => {
         item.attributes.flyersgallery.data.map((item) => item.attributes.url)
       );
 
-      //Weather
-
-      // const res = await weatherRequest();
-      // const descTranslate = weatherDesc.weatherEn.indexOf(
-      //   res.weather.map((item) => item.description).toString()
-      // );
+  
 
 
       setInfo({
@@ -115,6 +108,21 @@ export const Provider = ({ children }) => {
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activityGallery, image, staffImage, flyerImage]);
+
+  
+  useEffect(() => {
+    const changeLanguage = setInterval(() => {
+      if (language == "en") setLanguage("es");
+      if (language == "es") setLanguage("en");
+    }, 60000);
+    return () => {
+      clearInterval(changeLanguage);
+    };
+  });
+
+  const changeLanguageMobile = (lang) => {
+    setLanguageMobile(lang) ;
+  };
 
   const handleImage = (item) => {
     setImage(item);
@@ -206,6 +214,8 @@ export const Provider = ({ children }) => {
         postFlyer,
         deleteFlyer,
         language,
+        languageMobile,
+        changeLanguageMobile
       }}
     >
       {children}

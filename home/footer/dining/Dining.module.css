@@ -1,0 +1,91 @@
+.container {
+  width: 34vw;
+  height: 45vh;
+}
+
+.title {
+  width: 100%;
+  height: 4vh;
+  background: var(--home-linear);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2px;
+}
+
+.card_container {
+  width: 100%;
+  height: 41vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .5vh;
+
+}
+
+.card {
+  width: 16vw;
+  height: 12.5vh;
+  border-radius: var(--border-radius);
+  box-shadow: var(--home-shadow);
+}
+
+.name {
+  width: 100%;
+  height: 23%;
+  background: var(--home-linear);
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--font-color);
+  font-weight: var(--font-weight);
+}
+
+.restaurants_info_container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  border-radius: 0 0 5px 5px;
+}
+
+.logo {
+  width: 30%;
+  height: 94%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 0 0 0 5px;
+}
+
+.iconsinfo {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icons_container {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.info_container {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--font-color);
+  font-size: var(--font-m);
+}

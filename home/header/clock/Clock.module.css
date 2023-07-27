@@ -1,0 +1,45 @@
+.clock_container {
+    height: 12vh;
+    width: 33vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    background: var(--home-linear);
+    color: var(--font-color);
+  }
+  
+  .clock_container_info {
+    width: 80%;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2vw;
+  }
+  
+  .hour {
+    font-weight: var(--font-weigth);
+    font-size: var(--font-xl);
+    font-weight: var(--font-weight);
+  
+  }
+  
+  .date {
+    flex: 1;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    place-items: center;
+    flex-direction: column;
+    font-size: var(--font-lg);
+    font-weight: var(--font-weight);
+  
+  }
+  
+  .day {
+    font-size: var(--font-lg);
+    font-weight: var(--font-weight);
+  }
+  
