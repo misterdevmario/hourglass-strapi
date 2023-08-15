@@ -1,24 +1,27 @@
 import { useInfo } from "@/context/Context";
-import styles from "./Dining.module.css";
 import Image from "next/image";
 import { sectionTitles } from "@/lib/language";
-const Dining = () => {
+import styles from "./Breakfast.module.css";
+
+const Breakfast = () => {
   const { info, language, languageMobile } = useInfo();
 
   return (
-   <>
+  <>
     <div className={styles.container}>
       <div className={styles.title}>
-        {language == "en" ? sectionTitles.en.dining : sectionTitles.es.dining}
+        {language == "en"
+          ? sectionTitles.en.breaknlunch
+          : sectionTitles.es.breaknlunch}
       </div>
       <div className={styles.card_container}>
-        {info.dinning.map((item) => (
+        {info.breakfast.map((item) => (
           <div className={styles.card} key={item.id}>
             <div className={styles.name}>{item.attributes.name}</div>
             <div className={styles.restaurants_info_container}>
               <div className={styles.logo}>
                 <Image
-                  src={item.attributes.diningImg}
+                  src={item.attributes.breakfastImg}
                   width={80}
                   height={80}
                   alt="restaurant logo"
@@ -86,16 +89,18 @@ const Dining = () => {
     {/* 768px */}
     <div className={styles.container_sm}>
       <div className={styles.title}>
-        {languageMobile == "en" ? sectionTitles.en.dining : sectionTitles.es.dining}
+        {languageMobile == "en"
+          ? sectionTitles.en.breaknlunch
+          : sectionTitles.es.breaknlunch}
       </div>
       <div className={styles.card_container}>
-        {info.dinning.map((item) => (
+        {info.breakfast.map((item) => (
           <div className={styles.card} key={item.id}>
             <div className={styles.name}>{item.attributes.name}</div>
             <div className={styles.restaurants_info_container}>
               <div className={styles.logo}>
                 <Image
-                  src={item.attributes.diningImg}
+                  src={item.attributes.breakfastImg}
                   width={80}
                   height={80}
                   alt="restaurant logo"
@@ -160,8 +165,8 @@ const Dining = () => {
         ))}
       </div>
     </div>
-   </>
+  </>
   );
 };
 
-export default Dining;
+export default Breakfast;

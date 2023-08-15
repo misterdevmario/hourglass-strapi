@@ -12,7 +12,7 @@ const ActivitiesGallery = ({id, closeModal}) => {
     <div className={styles.container}>
       <h1>Elige una imagen</h1>
       <div className={styles.image_container}>
-        {info.activitiesGallery.map((item, i) => (
+        {info?.activitiesGallery.map((item, i) => (
           <Image
             key={i}
             src={item}

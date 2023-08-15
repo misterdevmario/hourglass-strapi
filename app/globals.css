@@ -26,6 +26,11 @@
   --secondary-color:rgb(160, 40, 204);
   --home-linear: linear-gradient(rgb(160, 40, 204), rgb(54, 22, 160));
   --transparency:rgba(119, 41, 236, 0.8);
+
+  /* 1280 */
+  --font-desktopm: 12px
+  --font-desktoplg:13px
+
 }
 
 

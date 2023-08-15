@@ -67,6 +67,19 @@
   display: none;
 }
 
+@media screen and (max-width: 1280px) {
+
+  .hours{
+    font-size:13px;
+
+  }
+  
+  .locationactivity{
+    font-size: 12px;
+    height: 17%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .slideshow_lg {
     display: none;
@@ -78,7 +91,9 @@
   .card img {
     height: 90vw;
   }
-
+.hours{
+  font-size: 16px;
+}
   .infocard {
     height: 95%;
   }

@@ -5,6 +5,10 @@
     color: white;
     background: var(--main-bg-color);
   }
+
+  .language{
+    display: none;
+  }
   
   @media screen and (max-width: 768px) {
     .header_container{
@@ -13,6 +17,13 @@
     .clock,
     .weather {
       display: none;
+    }
+
+    .language{
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 4vh;
     }
   }
   

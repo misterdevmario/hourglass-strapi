@@ -22,6 +22,8 @@ import {
   deleteActivities,
   deleteStaffs,
   deleteFlyers,
+  getFlyersTitle,
+  putFlyersTitle
 } from "@/lib/api";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -53,6 +55,7 @@ export const Provider = ({ children }) => {
     barsrestaurantsGallery: [],
     flyers: [],
     flyersGallery: [],
+    flyersTitle:[]
   });
 
 
@@ -86,6 +89,7 @@ export const Provider = ({ children }) => {
       //flyers
       const flyersResponse = await getFlyers();
       const flyersGalleryResponse = await getFlyersGallery();
+      const flyersTitleResponse = await getFlyersTitle()
       const flyerImage = flyersGalleryResponse.data.map((item) =>
         item.attributes.flyersgallery.data.map((item) => item.attributes.url)
       );
@@ -104,6 +108,7 @@ export const Provider = ({ children }) => {
         barsrestaurantsGallery: restaurantsBarsImages.toString().split(","),
         flyers: flyersResponse.data,
         flyersGallery: flyerImage.toString().split(","),
+        flyersTitle: flyersTitleResponse.data
       });
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -116,8 +116,8 @@ const Carousel = ({ activities }) => {
                   className={styles.form_image}
                   src={item.attributes.activitieImage}
                   alt="activity"
-                  width={200}
-                  height={250}
+                  width={400}
+                  height={650}
                   priority
                   onClick={() => {
                     openGallery();

@@ -1,5 +1,5 @@
 .container {
-  width: 34vw;
+  width: 17vw;
   height: 45vh;
 }
 
@@ -14,6 +14,7 @@
   justify-content: center;
   align-items: center;
   margin-left: 2px;
+  border-left: 2px solid #000;
 }
 
 .card_container {
@@ -88,10 +89,16 @@
   color: var(--font-color);
   font-size: var(--font-m);
 }
+
 .container_sm {
   display: none;
 }
+
 @media screen and (max-width: 1280px) {
+  .container_sm {
+    display: none;
+  }
+
   .card_container {
     width: 100%;
     height: 40vh;
@@ -117,9 +124,6 @@
     height: 2vh;
     width: auto;
   }
-  .container_sm {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -129,11 +133,11 @@
 
   .container_sm {
     width: 100vw;
-    height: 110vh;
+    height: 58vh;
     display: block;
   }
   .card_container {
-    height: 105vh;
+    height: 52.5vh;
   }
 
   .title {
