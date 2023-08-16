@@ -65,6 +65,15 @@
   display: none;
 
 }
+
+
+@media screen and (max-width: 1280px){
+  .stafftitle{
+    font-size: 12px;
+  }
+}
+
+
 @media screen and (max-width:768px) {
 
   .staffcontainer{
