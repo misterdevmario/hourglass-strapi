@@ -20,8 +20,8 @@ const Login = () => {
       <Image src="/logo.svg" alt="logo" width={500} height={500} priority />
       <Formik
         initialValues={{
-          identifier: "admin",
-          password: "test1234",
+          identifier: "",
+          password: "",
         }}
         validationSchema={validation}
         onSubmit={async (data, actions) => {
