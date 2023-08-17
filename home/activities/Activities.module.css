@@ -59,8 +59,15 @@
 }
 
 .location {
+
   display: flex;
-  gap: 1vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.loctaion_pin{
+  position: absolute;
+  left: 7%;
 }
 
 .slideshow_sm {

@@ -36,7 +36,7 @@
 
 .card {
   width: 15vw;
-  height: 8vh;
+  height: 6vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +48,8 @@
 }
 
 .imginfo img {
-  height: 8vh;
+  height: 6vh;
+  width: auto;
   background-color: #fff;
   border-radius: 5px 0 0 5px;
 }

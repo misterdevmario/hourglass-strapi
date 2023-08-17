@@ -25,7 +25,7 @@ const Staff = () => {
         loop={true}
         modules={[Autoplay]}
         autoplay={{
-          delay: 3000,
+          delay: 4300,
           disableOnInteraction: false,
         }}
       >

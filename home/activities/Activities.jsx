@@ -1,4 +1,3 @@
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -8,6 +7,7 @@ import { time } from "@/lib/language";
 import { useInfo } from "@/context/Context";
 import Image from "next/image";
 import styles from "./Activities.module.css";
+import Transition from "../transition/Transition";
 
 const Activities = () => {
   const { info, language, languageMobile } = useInfo();
@@ -61,10 +61,14 @@ const Activities = () => {
                         : item.attributes.activitieEs}
                     </div>
                     <div className={styles.location}>
-                      <CiLocationOn />
-                      {language == "en"
-                        ? item.attributes.spotEn
-                        : item.attributes.spotEs}
+                      <div className={styles.loctaion_pin}>
+                        <CiLocationOn size={25} />
+                      </div>
+                      <div>
+                        {language == "en"
+                          ? item.attributes.spotEn
+                          : item.attributes.spotEs}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -107,11 +111,14 @@ const Activities = () => {
                         : item.attributes.activitieEs}
                     </div>
                     <div className={styles.location}>
-                      {" "}
-                      <CiLocationOn />{" "}
-                      {languageMobile == "en"
-                        ? item.attributes.spotEn
-                        : item.attributes.spotEs}
+                      <div className={styles.loctaion_pin}>
+                        <CiLocationOn />
+                      </div>
+                      <div>
+                        {language == "en"
+                          ? item.attributes.spotEn
+                          : item.attributes.spotEs}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -120,7 +127,6 @@ const Activities = () => {
           ))}
         </Swiper>
       </div>
-     
     </>
   );
 };
