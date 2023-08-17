@@ -18,7 +18,7 @@
   height: 5.4vh;
   background: var(--home-linear);
   color: #fff;
-  font-size: 1.1rem;
+  font-size: var(--font-m);
   font-weight: var(--font-weight);
   display: flex;
   justify-content: center;
