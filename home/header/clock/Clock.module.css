@@ -42,6 +42,20 @@
     font-size: var(--font-lg);
     font-weight: var(--font-weight);
   }
+
+  @media screen and (min-width: 2560px){
+    .hour{
+      font-size: 3.8rem;
+    }
+
+    .date{
+      font-size: 2rem;
+    }
+
+    .day{
+      font-size: 3.2rem;
+    }
+  }
   
   @media screen and (max-width: 1280px) {
     .hour{

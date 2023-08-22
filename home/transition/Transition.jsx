@@ -5,10 +5,10 @@ import "./transition.css"
 
 const Transition = () => {
   const [className, setClassName] = useState("none");
-  const { language } = useInfo();
+  const { language, info } = useInfo();
 
   useEffect(() => {
-    if (language == "en" || language == "es") {
+    if (language == "en" || language == "es" ) {
       setClassName("transition");
     }
     setTimeout(() => {

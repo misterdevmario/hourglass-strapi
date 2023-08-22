@@ -53,6 +53,32 @@
   text-align: center;
 }
 
+@media screen and (min-width: 2560px){
+  .temp {
+    font-size: 3.8rem;
+     }
+     
+     .temp img {
+       height: 8vh;
+       width: auto;
+     }
+     
+     .temmaxmin {
+    font-size: 1.7rem;
+     }
+     
+     .tempmain {
+      font-size: 3.8rem;
+     }
+     
+     .location{
+         font-size:1.7rem;
+     }
+     .desc {
+       font-size: 1.7rem;
+     
+     }
+}
 
 @media screen and (max-width: 1280px) {
 
