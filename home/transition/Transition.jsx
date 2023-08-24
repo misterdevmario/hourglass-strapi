@@ -1,20 +1,20 @@
 import { useInfo } from "@/context/Context";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import "./transition.css"
+import "./transition.css";
 
 const Transition = () => {
   const [className, setClassName] = useState("none");
   const { language, info } = useInfo();
 
   useEffect(() => {
-    if (language == "en" || language == "es" ) {
+    if (info.activities.length == 0 || language == "en" || language == "es") {
       setClassName("transition");
     }
     setTimeout(() => {
       setClassName("none");
     }, 3000);
-  }, [language]);
+  }, [language, info.activities]);
 
   return (
     <div className={className}>
