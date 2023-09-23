@@ -24,7 +24,6 @@
   align-items: center;
   position: relative;
 }
-  
 
 .staffcard img {
   width: auto;
@@ -57,35 +56,60 @@
   font-weight: var(--font-weight);
   color: var(--font-color);
 }
-.staffslideshow_sm{
+.staffslideshow_sm {
   display: none;
 }
-.stafftitle_sm{
+.stafftitle_sm {
   display: none;
-
+}
+.modal_img {
+  display: flex;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+}
+.modaldesc {
+  width: 25vw;
+  height: 23vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2.5vh;
+  margin-left: 2vw;
+}
+.modaldesc_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
+.modaldesc_desc {
+  font-size: 2.8vh;
+  color: var(--secondary-color);
+  margin-top: 5vh;
+}
 
-@media screen and (max-width: 1280px){
-  .stafftitle{
+@media screen and (max-width: 1280px) {
+  .stafftitle {
     font-size: 12px;
   }
 }
 
-@media screen and (max-width:768px) {
-
-  .staffcontainer{
+@media screen and (max-width: 768px) {
+  .staffcontainer {
     width: 100vw;
     min-height: 52vh;
   }
 
-  
-
-  .staffslideshow_sm{
+  .staffslideshow_sm {
     display: flex;
   }
 
-  .stafftitle_sm{
+  .stafftitle_sm {
     display: flex;
     width: 100%;
     height: 4vh;
@@ -97,22 +121,50 @@
     justify-content: center;
     align-items: center;
   }
-  .staffslideshow_lg, .stafftitle{
+  .staffslideshow_lg,
+  .stafftitle {
     display: none;
   }
 
-  .staffcard{
+  .staffcard {
     height: 52vh;
   }
-  .staffcard img{
+  .staffcard img {
     height: 100vw;
   }
-  .staffinfo{
-    height:85%;
+  .staffinfo {
+    height: 85%;
   }
   .name,
-.position{
-  width: 65vw;
-  font-size: 15px;
-}
+  .position {
+    width: 65vw;
+    font-size: 15px;
+  }
+
+
+  .modal_img {
+    width: 80vw;
+    height: auto;
+    flex-direction: column;
+    min-height: 70vh;
+  }
+  .modaldesc {
+    margin-top: 6vh;
+    width: 90vw;
+    height: 20vw;
+    font-size: 2vh;
+  }
+
+  .modaldesc_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modaldesc_desc {
+    font-size: 2.5vh;
+    color: var(--secondary-color);
+    margin-top: 4vh;
+  }
 }

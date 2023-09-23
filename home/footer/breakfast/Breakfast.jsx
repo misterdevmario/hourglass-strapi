@@ -1,3 +1,5 @@
+'use client'
+
 import { useInfo } from "@/context/Context";
 import Image from "next/image";
 import { sectionTitles } from "@/lib/language";

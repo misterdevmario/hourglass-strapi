@@ -1,3 +1,5 @@
+"use client";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -7,10 +9,15 @@ import { time } from "@/lib/language";
 import { useInfo } from "@/context/Context";
 import Image from "next/image";
 import styles from "./Activities.module.css";
-import Transition from "../transition/Transition";
+import Modal from "@/components/modal/Modal";
+import { useModal } from "@/components/modal/useModal";
+import { useState } from "react";
 
 const Activities = () => {
   const { info, language, languageMobile } = useInfo();
+  const [isOpenActivity, openActivity, closeActivity] = useModal(true);
+  const [imgDesc, setImgDesc] = useState();
+
   const sortedHours = [];
   for (let i = 0; i < time.length; i++) {
     for (let j = 0; j < info?.activities.length; j++) {
@@ -23,9 +30,33 @@ const Activities = () => {
         sortedHours.push(info?.activities[j]);
     }
   }
+  const handleImg = (id) => {
+    const image = info.activities
+      .filter((item) => item.id == id)
+      .map((item) => item.attributes.activitieImage)
+      .toString();
+    setImgDesc(image);
+  };
 
   return (
     <>
+      <Modal isOpen={isOpenActivity} closeModal={closeActivity}>
+        <div className={styles.modal_img}>
+          <Image src={imgDesc} alt="menu" width={600} height={800} />
+          <div className={styles.modaldesc}>
+            <div className={styles.modaldesc_item}>
+              <div className={styles.modaldesc_desc}>Activity description</div>
+              <div>A brief description of the activity displayed</div>
+            </div>
+            <div className={styles.modaldesc_item}>
+              <div className={styles.modaldesc_desc}>
+                descripcion de la actividad
+              </div>
+              <div>Breve descripcion de la imagen mostrada</div>
+            </div>
+          </div>
+        </div>
+      </Modal>
       <div className={styles.container_lg}>
         <Swiper
           className={styles.slideshow_lg}
@@ -39,7 +70,14 @@ const Activities = () => {
           }}
         >
           {sortedHours.map((item, i) => (
-            <SwiperSlide key={i} className={styles.slide}>
+            <SwiperSlide
+              key={i}
+              className={styles.slide}
+              onClick={(id) => {
+                openActivity();
+                handleImg(item.id);
+              }}
+            >
               <div className={styles.card}>
                 <Image
                   src={item.attributes.activitieImage}
@@ -89,7 +127,14 @@ const Activities = () => {
           }}
         >
           {sortedHours.map((item, i) => (
-            <SwiperSlide key={i} className={styles.slide}>
+            <SwiperSlide
+              key={i}
+              className={styles.slide}
+              onClick={(id) => {
+                openActivity();
+                handleImg(item.id);
+              }}
+            >
               <div className={styles.card}>
                 <Image
                   src={item.attributes.activitieImage}
