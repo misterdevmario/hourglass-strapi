@@ -160,7 +160,7 @@ const Activities = () => {
                         <CiLocationOn />
                       </div>
                       <div>
-                        {language == "en"
+                        {languageMobile == "en"
                           ? item.attributes.spotEn
                           : item.attributes.spotEs}
                       </div>
